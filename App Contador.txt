@@ -1,0 +1,38 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
+const Display = ({ counter }) => <div>{counter}</div>
+
+const Button = ({ handleClick, text }) => <button onClick={handleClick}>{text}</button>
+
+const App = () => {
+  const [counter, setCounter] = useState(0)
+  console.log('Rendering with counter value ', counter)
+  const increasedByOne = () => {
+    console.log('Increasing, value before ', counter)
+    setCounter(counter + 1)
+  }
+  const decreasedByOne = () => {
+    console.log('Decreasing, value before ', counter)
+    setCounter(counter - 1)
+  }
+  const setToZero = () => {
+    console.log('Reseatting to zero, value before ', counter)
+    setCounter(0)
+  }
+
+
+  return (
+    <div>
+      <Display counter={counter} />
+      <Button handleClick={increasedByOne} text='plus' />
+      <Button handleClick={setToZero} text='zero' />
+      <Button handleClick={decreasedByOne} text='minus' />
+
+    </div>
+  )
+}
+
+export default App
